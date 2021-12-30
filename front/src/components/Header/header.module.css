@@ -1,0 +1,35 @@
+
+.header {
+  min-width: 100vw;
+  left: 0px;
+  top: 0px;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  color: #FFFFFF;
+  background: #D4145A;
+  height: 50px;
+}
+
+.head_links_logout {
+  text-decoration: none;
+  margin: 15px;
+  padding: 5px 0px 5px;
+  font-size: 20px;
+  color: #FFFFFF;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.head_links {
+  text-decoration: none;
+  margin: 15px;
+  padding: 5px 0px 5px;
+  font-size: 20px;
+  color: #FFFFFF;
+  font-family: Arial, Helvetica, sans-serif;
+}
