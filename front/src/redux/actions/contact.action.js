@@ -1,4 +1,4 @@
-import { DELETE_CONTACT_ERROR, DELETE_CONTACT, SET_CONTACTS, SET_CONTACTS_ERROR, ADD_CONTACT_ERROR, ADD_CONTACT } from '../types'
+import {EDIT_CONTACT, EDIT_CONTACT_ERROR, DELETE_CONTACT_ERROR, DELETE_CONTACT, SET_CONTACTS, SET_CONTACTS_ERROR, ADD_CONTACT_ERROR, ADD_CONTACT } from '../types'
 
 export const getContacts = (id) => async (dispatch) => {
 
@@ -75,6 +75,39 @@ export const deleteContact = (id) => async (dispatch) => {
   } catch(err) {
     dispatch ({
       type: DELETE_CONTACT_ERROR,
+      payload: {error: err}
+    })
+  }
+}
+
+
+export const editContact = (id, {name, phone}) => async (dispatch) => {
+  console.log(id, name, phone);
+  try {
+    const response = await fetch(`http://localhost:3000/contacts/${id}`, {
+      method: 'PATCH', 
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          name, phone
+        })
+    })
+    if(response.ok) {
+      dispatch({
+        type: EDIT_CONTACT,
+        payload: { id, name, phone} 
+      })
+    } else {
+      dispatch({
+        type: EDIT_CONTACT_ERROR,
+        payload: {error: 'ошибка редактирования'}
+      })
+    }
+  } catch(err) {
+    dispatch({
+      type: EDIT_CONTACT_ERROR,
       payload: {error: err}
     })
   }

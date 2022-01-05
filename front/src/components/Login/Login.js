@@ -12,6 +12,7 @@ function Login(){
   const {error, value: user} = useSelector((state) => state.user)
   const [useEmail, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  console.log(document.cookie);
 
   useEffect(() => {
     if (user) {

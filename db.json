@@ -7,30 +7,30 @@
       "id": 1
     },
     {
-      "name": "popa",
-      "email": "i@i.com",
+      "name": "lolita",
+      "email": "ololo@mail.ru",
       "password": "123",
-      "id": 2
+      "id": 3
+    },
+    {
+      "name": "pepa",
+      "email": "pepe@pa.ru",
+      "password": "123",
+      "id": 4
     }
   ],
   "contacts": [
     {
-      "user_id": 2,
-      "name": "qawd",
-      "phone": "89991112233",
-      "id": 1
+      "user_id": 4,
+      "name": "Lola",
+      "phone": "8937464789",
+      "id": 5
     },
     {
       "user_id": 2,
-      "name": "Орда",
-      "phone": "89636963002",
-      "id": 3
-    },
-    {
-      "user_id": 2,
-      "name": "IRINA KOROTKOVA",
-      "phone": "+7(926)305-74-17",
-      "id": 4
+      "name": "Orda",
+      "phone": "+79261",
+      "id": 7
     }
   ]
 }

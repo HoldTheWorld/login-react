@@ -1,4 +1,4 @@
-import { DELETE_CONTACT, DELETE_CONTACT_ERROR, SET_CONTACTS, SET_CONTACTS_ERROR, ADD_CONTACT, ADD_CONTACT_ERROR  } from '../types'
+import { EDIT_CONTACT, EDIT_CONTACT_ERROR, DELETE_CONTACT, DELETE_CONTACT_ERROR, SET_CONTACTS, SET_CONTACTS_ERROR, ADD_CONTACT, ADD_CONTACT_ERROR  } from '../types'
 
 export const contactReducer = (state={}, action) => {
   const {type, payload } = action
@@ -32,9 +32,23 @@ export const contactReducer = (state={}, action) => {
     }
     case DELETE_CONTACT: {
       const contacts = state.value.filter((el) => el.id !== payload)
-
       return {
         value: contacts
+      }
+    }
+
+    case EDIT_CONTACT: {
+     const { id, name, phone } = payload 
+     const contacts = state.value.map((el) => el.id === id ? {user_ud: el.user_id, name: name, phone: phone, id: el.id} : el)
+      return {
+        value: contacts
+      }
+    }
+
+    case EDIT_CONTACT_ERROR: {
+      const { error } = payload
+      return {
+        error: error
       }
     }
 

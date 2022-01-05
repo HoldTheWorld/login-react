@@ -19,6 +19,7 @@ export const loginUser = (user) => async (dispatch) => {
       payload: {error: 'неверный пароль'}
     })
    } else {
+     document.cookie = `user=${loggedUser[0].name}`
     dispatch({
       type: SET_USER,
       payload: loggedUser[0]

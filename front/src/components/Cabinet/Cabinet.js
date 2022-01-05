@@ -10,8 +10,7 @@ function Cabinet() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [add, setAdd] = useState(false)
-  const [name, setName ] = useState('')
-  const [phone, setPhone ] = useState('')
+
   
   const {error: userError, value: user} = useSelector((state) => state.user)
   const { error: contactError, value: contacts } = useSelector((state) => state.contact)

@@ -12,6 +12,7 @@ function Header() {
   const {error, value: user} = useSelector((state) => state.user)
   const dispatch = useDispatch()
   const logOut = () => {
+    document.cookie =  `user=${user.name}; max-age=0`
     dispatch(userLogout())
     navigate('/login')
   }
