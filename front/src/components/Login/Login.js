@@ -12,7 +12,6 @@ function Login(){
   const {error, value: user} = useSelector((state) => state.user)
   const [useEmail, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  console.log(document.cookie);
 
   useEffect(() => {
     if (user) {
@@ -46,7 +45,7 @@ function Login(){
         <label > email  </label>
           <input onChange={handleEmail} name='email' id='email' type='text' placeholder='email'/>
         <label> Пароль  </label>
-          <input onChange={handlePass} name='password' id='password' type='password' placeholder='password'/>
+          <input onChange={handlePass} name='password' id='password' type='password' placeholder='пароль'/>
           {error}
           <button>Вход</button>
       </form>

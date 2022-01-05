@@ -1,3 +1,23 @@
 button {
   margin: 5px;
 }
+
+.contacts_container {
+  display: flex;
+  flex-direction: row;
+}
+
+.top {
+  padding: 5px;
+  background-color: chartreuse;
+}
+.right {
+  padding: 5px;
+  width: 50%;
+  background-color: rgb(139, 22, 22);
+}
+.left {
+  padding: 5px;
+  width: 50%;
+  background-color: blue;
+}

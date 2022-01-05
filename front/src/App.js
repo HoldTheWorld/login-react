@@ -10,24 +10,19 @@ import { useNavigate } from "react-router"
 
 
 function App() {
-  // const navigate = useNavigate()
-  //   useEffect(() => {
-  //     if(!document.cookie.length) {
-  //       navigate('/cabinet') 
-  //     } else {
-  //       navigate('/login')
-  //     }
-  //   })
-  console.log(document.cookie);
+
+
   return (
-    <div>
-      <Header/>
+    <>
+    <Header/>
+    <div className='container'>
       <Routes>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/cabinet' element={<Cabinet/>}/>
       </Routes>
     </div>
+    </>
   );
 }
 

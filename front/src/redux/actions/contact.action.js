@@ -8,7 +8,7 @@ export const getContacts = (id) => async (dispatch) => {
    })
    const allContacts = await response.json()
    const userContacts = allContacts.filter((el) => el.user_id == id)
-   
+   console.log(userContacts);
    dispatch({
     type: SET_CONTACTS,
     payload: userContacts
@@ -34,24 +34,21 @@ try {
           user_id, name, phone
         })
      })
-    if(response.ok) {
-      dispatch({
-        type: ADD_CONTACT,
-        payload: {user_id, name, phone}
-      })
-    } else {
-      dispatch ({
-        type: ADD_CONTACT_ERROR,
-        payload: {error: 'ошибка добавления контакта'}
-      })
-    }
-} catch(err) {
-  dispatch ({
-    type: ADD_CONTACT_ERROR,
-    payload: {error: err}
-  })
-}
 
+     if (response.ok) {
+       dispatch(getContacts(user_id))
+     } else {
+      dispatch ({
+            type: ADD_CONTACT_ERROR,
+            payload: {error: 'ошибка добавления контакта'}
+          })
+     }
+  } catch(err) {
+    dispatch ({
+      type: ADD_CONTACT_ERROR,
+      payload: {error: err}
+    })
+  }
 }
 
 

@@ -24,22 +24,21 @@ function Contact({contact}) {
   }
   function handleEdit(id) {
     setIsActive(!isActive)
-    dispatch(editContact(id, {name: name, phone: phone}))
+    dispatch(editContact(Number(id), {name: name, phone: phone}))
   }
-
 
 return (
   <div className={styles.contact_container}>
     <div>
-      <div> Name </div>
+      <div> Имя </div>
         <input onChange={(e)=> {setName(e.target.value)}} name='name' id='name' disabled={!isActive} value={name}/>
-      <div> Phone </div>
+      <div> Телефон </div>
         <input  onChange={(e)=> {setPhone(e.target.value)}} name='phone' id='phone' disabled={!isActive} value={phone}/>
     </div>
     <div>
-      <button onClick={() => handleDelete(contact.id)}>Delete </button>
-      {!isActive && <button onClick={() => handleInputActive()}>Edit </button>}
-      {isActive && <button onClick={() => handleEdit(contact.id)}>Save </button>} 
+      <button onClick={() => handleDelete(contact.id)}>Удалить </button>
+      {!isActive && <button onClick={() => handleInputActive()}>Изменить </button>}
+      {isActive && <button onClick={() => handleEdit(contact.id)}>Сохранить </button>} 
     </div>
   </div>
 )

@@ -51,14 +51,14 @@ function Register (){
     <>
       <form className={styles.input_container} onSubmit={getUser}>
         <label> Имя   </label>
-          <input onChange={handleName}  name='name' id='name' type='text' placeholder='name'/>
+          <input onChange={handleName}  name='name' id='name' type='text' placeholder='имя'/>
       
         <label > email  </label>
           <input onChange={handleEmail} name='email' id='email' type='text' placeholder='email'/>
        
         <label> Пароль  </label>
-          <input onChange={handlePass} name='password' id='password' type='password' placeholder='password'/>
-          <button>Вход</button>
+          <input onChange={handlePass} name='password' id='password' type='password' placeholder='пароль'/>
+          <button>Регистрация</button>
       </form>
     </>
   )

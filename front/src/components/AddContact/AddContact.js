@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import {  addContact } from '../../redux/actions/contact.action'
 
 
-function AddContact() {
+function AddContact({setAdd, add}) {
 
   const dispatch = useDispatch()
 
   const {error: userError, value: user} = useSelector((state) => state.user)
 
-  const [add, setAdd] = useState(true)
+  // const [add, setAdd] = useState(true)
   const [name, setName ] = useState('')
   const [phone, setPhone ] = useState('')
 
@@ -37,11 +37,11 @@ return (
       {add && 
           <div >
             <form onSubmit={handleContact}>
-              <label> Name </label>
+              <label> Имя </label>
                 <input onChange={handleName} name='name' id='name' type='text'/>
-              <label> Phone </label>
+              <label> Телефон </label>
                 <input onChange={handlePhone} name='phone' id='phone' type='text'/>
-              <button>Save </button>
+              <button> Сохранить </button>
             </form>
           </div>
       }
