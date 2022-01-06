@@ -2,15 +2,15 @@ import { useState, useEffect  } from 'react'
 import { useNavigate } from "react-router"
 import { useDispatch, useSelector } from 'react-redux'
 import {  addContact } from '../../redux/actions/contact.action'
+import styles from './add.module.css'
 
 
-function AddContact({setAdd, add}) {
+function AddContact({add, setAdd}) {
 
   const dispatch = useDispatch()
 
   const {error: userError, value: user} = useSelector((state) => state.user)
 
-  // const [add, setAdd] = useState(true)
   const [name, setName ] = useState('')
   const [phone, setPhone ] = useState('')
 
@@ -24,27 +24,29 @@ function AddContact({setAdd, add}) {
 
   const handleContact = (e) => {
     e.preventDefault()
-    setAdd(!add)
     dispatch(addContact({
       user_id: user.id,
       name: name,
       phone: phone
     }))
+    setAdd(!add)
+    setName('')
+    setPhone('')
   }
 
 return (
   <>
-      {add && 
-          <div >
-            <form onSubmit={handleContact}>
-              <label> Имя </label>
-                <input onChange={handleName} name='name' id='name' type='text'/>
-              <label> Телефон </label>
-                <input onChange={handlePhone} name='phone' id='phone' type='text'/>
+
+          
+            <form className={styles.add_form} onSubmit={handleContact}>
+              <div>
+                <input onChange={handleName} placeholder='имя' name='name' id='name' type='text'/>
+                <input onChange={handlePhone} placeholder='телефон' name='phone' id='phone' type='text'/>  
+              </div>
               <button> Сохранить </button>
             </form>
-          </div>
-      }
+       
+ 
   </>
 )
 

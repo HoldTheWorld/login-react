@@ -24,7 +24,7 @@ function Header() {
           { user ? 
            <>
             <Link className={styles.head_links} to='/cabinet'> Личный кабинет</Link>
-            <button className={styles.head_links_logout} type='button' onClick={logOut}>  Выйти</button>
+            <button type='button' onClick={logOut}>  Выйти</button>
           </>
             : 
           <>

@@ -1,23 +1,21 @@
 
 .header {
-  max-width: 50vw;
-  left: 0px;
-  top: 0px;
-  padding: 5px;
+  min-width: 100vw;
+  max-width: 100vw;
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   color: #FFFFFF;
   background: #D4145A;
-  height: 50px;
+  height: 3em;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.head_links_logout {
+.header button {
+  font-size: 1.5em;
   text-decoration: none;
-  margin: 15px;
-  padding: 5px 0px 5px;
-  font-size: 20px;
+  margin: 1rem;
+  padding: 0;
   color: #FFFFFF;
   background-color: transparent;
   border: none;
@@ -26,10 +24,8 @@
 }
 
 .head_links {
+  font-size: 1.5em;
   text-decoration: none;
-  margin: 15px;
-  padding: 5px 0px 5px;
-  font-size: 20px;
+  margin: 1rem;
   color: #FFFFFF;
-  font-family: Arial, Helvetica, sans-serif;
 }

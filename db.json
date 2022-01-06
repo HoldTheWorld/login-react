@@ -7,72 +7,24 @@
       "id": 1
     },
     {
-      "name": "lolita",
-      "email": "ololo@mail.ru",
-      "password": "123",
-      "id": 3
-    },
-    {
       "name": "pepa",
-      "email": "pepe@pa.ru",
+      "email": "pe@pa.ru",
       "password": "123",
-      "id": 4
+      "id": 2
     }
   ],
   "contacts": [
     {
-      "user_id": 4,
+      "user_id": 2,
       "name": "Lola",
       "phone": "8937464789",
-      "id": 5
-    },
-    {
-      "user_id": 2,
-      "name": "Orda",
-      "phone": "+79261",
-      "id": 7
+      "id": 1
     },
     {
       "user_id": 1,
-      "name": "2",
-      "phone": "89991112233",
-      "id": 13
-    },
-    {
-      "user_id": 1,
-      "name": "саша",
-      "phone": "33453464575",
-      "id": 14
-    },
-    {
-      "user_id": 1,
-      "name": "маша",
-      "phone": "324344556",
-      "id": 15
-    },
-    {
-      "user_id": 1,
-      "name": "коля",
-      "phone": "4534645654",
-      "id": 16
-    },
-    {
-      "user_id": 1,
-      "name": "петя",
-      "phone": "786786756",
-      "id": 17
-    },
-    {
-      "user_id": 1,
-      "name": "semen",
-      "phone": "3434545",
-      "id": 18
-    },
-    {
-      "user_id": 1,
-      "name": "klon",
-      "phone": "4343431",
-      "id": 19
+      "name": "Pepa",
+      "phone": "8937464789",
+      "id": 2
     }
   ]
 }

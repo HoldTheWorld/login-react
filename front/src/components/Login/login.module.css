@@ -4,47 +4,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  width:max-content;
-  padding: 15px;
-  margin: 5% auto;
+  border-radius: .5em;
+  width: max-content;
+  padding: 1em;
+  margin: 3em auto;
   background-color: #f5f1f1;
-  font-family: Arial, Helvetica, sans-serif;
-}
-.input_container input {
-  margin: 5px;
-  margin: 10px 0px 10px;
-  height: 40px;
-  width: 250px;
-  border: 1px solid #ce86a036;
-  border-radius: 5px;
-  outline: none;
-  background-color: #f5f1f1;
-}
-.input_container button {
-  background: #D4145A;
-  border-radius: 100px;
-  color: white;
-  padding: 10px;
-  margin: 10px;
-  border: 1px solid transparent;
-  text-align: center;
-}
-
-.input_container button:active {
-  border-color: currentColor;
-  transform: translateY(2px);
-}
-
-.input_container button:hover {
-  border: 1px solid transparent;
-  background-color: #d6608c;
 }
 
 .login {
-
   text-align: center;
-  margin-top: 2%;
-  font-size: 25px;
-  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
 }

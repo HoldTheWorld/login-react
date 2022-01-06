@@ -9,21 +9,19 @@ import { getContacts, addContact } from "../../redux/actions/contact.action"
 function Cabinet() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [add, setAdd] = useState(false)
   const [search, setSearch] = useState()
+  const [add, setAdd] = useState(false)
   const [searchedContacts, setSearched] = useState([])  
   const {error: userError, value: user} = useSelector((state) => state.user)
   const { error: contactError, value: contacts } = useSelector((state) => state.contact)
 
-//разкоментить!!!!
-
-  // useEffect(() => {
-  //   if (user) {
-  //     dispatch(getContacts(user.id))
-  //   } else {
-  //   navigate('/login')
-  //   }
-  // }, [])
+  useEffect(() => {
+    if (user) {
+      dispatch(getContacts(user.id))
+    } else {
+    navigate('/login')
+    }
+  }, [])
 
 
   useEffect(() => {
@@ -37,9 +35,6 @@ function Cabinet() {
      setSearched(searched)
   }, [search])
   
-  const addContact = () => {
-    setAdd(!add)
-  }
 
   const searchContact = (e) => {
     setSearch(e.target.value)
@@ -48,9 +43,16 @@ function Cabinet() {
 return (
     <>
         <div className={styles.top}>
-            <button onClick={addContact}> Добавить контакт </button>
-            { add &&  <AddContact setAdd={setAdd} add={add}/> }
+          <div className={styles.add_contact}>
+           {!add && <button onClick={()=> setAdd(!add)}> Добавить контакт</button>} 
+           {add && <AddContact add={add} setAdd={setAdd}/> } 
+          </div>
+            <div className={styles.contact_search}>
+                <p> Поиск по имени или номеру телефона  </p>
+                <input onChange={searchContact} placeholder='начните ввод'/>
+            </div>
         </div>
+   
     <div className={styles.contacts_container}>
         <div className={styles.left}>
         {contacts.length ?  contacts.map((el) =>  <Contact contact={el} key={el.id}/>) : 
@@ -58,17 +60,10 @@ return (
         </div>
 
         <div className={styles.right}>
-          <div>
-            Поиск по имени или номеру телефона :
-            <input onChange={searchContact} placeholder='начните ввод'/>
-          </div>
-
-          <div>
-            Результаты поиска: 
             {searchedContacts.length ?  searchedContacts.map((el) =>  <Contact contact={el} key={el.id}/>) : 
-            <div> ничего не найдено </div>
+            <p> ничего не найдено </p>
             }
-          </div>
+
         </div>
     </div>
 
