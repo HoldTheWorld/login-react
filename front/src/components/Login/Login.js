@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import {useEffect, useState} from 'react'
 import { loginUser } from '../../redux/actions/user.actions'
 
-
 function Login(){
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -35,19 +34,18 @@ function Login(){
     setPassword(e.target.value);
   }
 
-
-  return(
+  return (
     <>
-    <div className={styles.login}>
-      Введите свои данные для входа в систему 
-    </div>
+      <div className={styles.login}>
+        Введите свои данные для входа в систему 
+      </div>
       <form className={styles.input_container} onSubmit={logUser}>      
         <label > email  </label>
           <input onChange={handleEmail} name='email' id='email' type='text' placeholder='email'/>
         <label> Пароль  </label>
           <input onChange={handlePass} name='password' id='password' type='password' placeholder='пароль'/>
           {error}
-          <button>Вход</button>
+        <button>Вход</button>
       </form>
     </>
   )

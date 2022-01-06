@@ -1,6 +1,6 @@
 import styles from './contact.module.css'
 import { useState, useEffect  } from 'react'
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { deleteContact, editContact } from '../../redux/actions/contact.action'
 
 function Contact({contact}) {
@@ -13,7 +13,6 @@ function Contact({contact}) {
     setName(contact.name)
     setPhone(contact.phone)
   },[])
-
 
   function handleDelete(id) {
     dispatch(deleteContact(id))
@@ -41,8 +40,7 @@ return (
       {isActive && <button onClick={() => handleEdit(contact.id)}>Сохранить </button>} 
     </div>
   </div>
-)
-
+ )
 }
 
 export default Contact

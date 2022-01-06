@@ -1,8 +1,9 @@
-import { EDIT_CONTACT, EDIT_CONTACT_ERROR, DELETE_CONTACT, DELETE_CONTACT_ERROR, SET_CONTACTS, SET_CONTACTS_ERROR, ADD_CONTACT, ADD_CONTACT_ERROR  } from '../types'
+import { EDIT_CONTACT, EDIT_CONTACT_ERROR, DELETE_CONTACT, SET_CONTACTS, SET_CONTACTS_ERROR, ADD_CONTACT, ADD_CONTACT_ERROR  } from '../types'
 
-export const contactReducer = (state={}, action) => {
+export const contactReducer = (state = {}, action) => {
   const {type, payload } = action
   switch(type) {
+    
     case SET_CONTACTS: {
       return {
         value: payload,
@@ -51,8 +52,6 @@ export const contactReducer = (state={}, action) => {
         error: error
       }
     }
-
-
 
     default: {
       return state

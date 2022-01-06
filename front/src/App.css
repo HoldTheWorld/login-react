@@ -24,13 +24,16 @@ button {
   text-align: center;
   min-width: 4em;
 }
+
 button:active {
   border-color: currentColor;
   transform: translateY(.1em);
 }
+
 button:hover {
   background-color: #d6608c;
 }
+
 input {
   margin: .5em;
   border: .1rem solid #ce86a036;

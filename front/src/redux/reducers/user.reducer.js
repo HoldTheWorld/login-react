@@ -1,9 +1,9 @@
 import {  SET_USER, SET_USER_ERROR, USER_LOGOUT } from '../types'
 
-
-export const userReducer = (state={} , action) => {
+export const userReducer = (state = {} , action) => {
   const { type, payload } = action
   switch(type) {
+
     case SET_USER: {      
       return {
         value: payload,
@@ -19,7 +19,6 @@ export const userReducer = (state={} , action) => {
       }
     }
 
-
     case USER_LOGOUT: {
       return {
         value: null,
@@ -30,6 +29,5 @@ export const userReducer = (state={} , action) => {
     default: {
       return state
     }
-
   }
 }

@@ -1,14 +1,12 @@
-import {EDIT_CONTACT, EDIT_CONTACT_ERROR, DELETE_CONTACT_ERROR, DELETE_CONTACT, SET_CONTACTS, SET_CONTACTS_ERROR, ADD_CONTACT_ERROR, ADD_CONTACT } from '../types'
+import {EDIT_CONTACT, EDIT_CONTACT_ERROR, DELETE_CONTACT_ERROR, DELETE_CONTACT, SET_CONTACTS, SET_CONTACTS_ERROR, ADD_CONTACT_ERROR } from '../types'
 
 export const getContacts = (id) => async (dispatch) => {
-
   try {
     const response = await fetch('http://localhost:3000/contacts', {
      credentials: 'include',
    })
    const allContacts = await response.json()
    const userContacts = allContacts.filter((el) => el.user_id == id)
-   console.log(userContacts);
    dispatch({
     type: SET_CONTACTS,
     payload: userContacts
@@ -22,8 +20,7 @@ export const getContacts = (id) => async (dispatch) => {
 }
 
 export const addContact = ({user_id, name, phone}) => async (dispatch) => {
-
-try {
+  try { 
   const response = await fetch('http://localhost:3000/contacts', {
        method: 'POST', 
        credentials: 'include',
@@ -51,7 +48,6 @@ try {
   }
 }
 
-
 export const deleteContact = (id) => async (dispatch) => {
   try {
     const response = await fetch(`http://localhost:3000/contacts/${id}`, {
@@ -77,9 +73,7 @@ export const deleteContact = (id) => async (dispatch) => {
   }
 }
 
-
 export const editContact = (id, {name, phone}) => async (dispatch) => {
-  console.log(id, name, phone);
   try {
     const response = await fetch(`http://localhost:3000/contacts/${id}`, {
       method: 'PATCH', 

@@ -4,18 +4,11 @@ import { useNavigate } from "react-router"
 import { useDispatch, useSelector } from 'react-redux'
 import {useEffect, useState} from 'react'
 
-// import {loginUser, getUser} from '../../redux/actions/user.actions'
-
-
 function Register (){
-
   const navigate = useNavigate()
-
-
   const [userName, setName] = useState('')
   const [useEmail, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
 
   const getUser = async (e) => {
    e.preventDefault()
@@ -46,19 +39,16 @@ function Register (){
     setPassword(e.target.value);
   }
 
-
   return(
     <>
       <form className={styles.input_container} onSubmit={getUser}>
         <label> Имя   </label>
           <input onChange={handleName}  name='name' id='name' type='text' placeholder='имя'/>
-      
         <label > email  </label>
           <input onChange={handleEmail} name='email' id='email' type='text' placeholder='email'/>
-       
         <label> Пароль  </label>
           <input onChange={handlePass} name='password' id='password' type='password' placeholder='пароль'/>
-          <button>Регистрация</button>
+        <button>Регистрация</button>
       </form>
     </>
   )

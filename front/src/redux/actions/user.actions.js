@@ -1,6 +1,5 @@
 import { SET_USER, SET_USER_ERROR, USER_LOGOUT } from '../types'
 
-
 export const loginUser = (user) => async (dispatch) => {
   try {
     const response = await fetch('http://localhost:3000/users', {
