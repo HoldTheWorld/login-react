@@ -1,6 +1,6 @@
 import styles from './contact.module.css'
 import { useState, useEffect  } from 'react'
-import { useDispatch } from "react-redux"
+import { useDispatch } from 'react-redux'
 import { deleteContact, editContact } from '../../redux/actions/contact.action'
 
 function Contact({contact}) {

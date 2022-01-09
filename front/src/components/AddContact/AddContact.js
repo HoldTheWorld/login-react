@@ -1,12 +1,10 @@
 import { useState, } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import {  addContact } from '../../redux/actions/contact.action'
 import styles from './add.module.css'
 
 function AddContact({add, setAdd}) {
   const dispatch = useDispatch()
-  const {error: userError, value: user} = useSelector((state) => state.user)
-
   const [name, setName ] = useState('')
   const [phone, setPhone ] = useState('')
 
@@ -21,7 +19,7 @@ function AddContact({add, setAdd}) {
   const handleContact = (e) => {
     e.preventDefault()
     dispatch(addContact({
-      user_id: user.id,
+      user_id: Number(localStorage.id),
       name: name,
       phone: phone
     }))

@@ -1,14 +1,22 @@
 import React from 'react'
 import styles from './register.module.css'
-import { useNavigate } from "react-router"
-import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
 import {useEffect, useState} from 'react'
+import { useFunctionContext } from '../../context/functionContext'
 
 function Register (){
   const navigate = useNavigate()
   const [userName, setName] = useState('')
   const [useEmail, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const { setWord } = useFunctionContext()
+
+  useEffect(() => {
+    if (localStorage.length) {
+    navigate('/cabinet')
+    }
+  },[])
 
   const getUser = async (e) => {
    e.preventDefault()
@@ -25,6 +33,7 @@ function Register (){
       })
    })
    if (response.ok) {
+     setWord('Подтвердите')
      navigate('/login')
     }
   }
@@ -41,6 +50,10 @@ function Register (){
 
   return(
     <>
+     <div className={styles.register}>
+        Если вы уже зарегистрированы, вы можете 
+       <Link to='/login'> войти </Link>
+      </div>
       <form className={styles.input_container} onSubmit={getUser}>
         <label> Имя   </label>
           <input onChange={handleName}  name='name' id='name' type='text' placeholder='имя'/>

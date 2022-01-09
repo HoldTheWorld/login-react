@@ -1,30 +1,44 @@
 import React from 'react'
 import styles from './login.module.css'
-import { useNavigate } from "react-router"
-import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router'
 import {useEffect, useState} from 'react'
-import { loginUser } from '../../redux/actions/user.actions'
+import { useFunctionContext } from '../../context/functionContext'
 
 function Login(){
-  const dispatch = useDispatch()
   const navigate = useNavigate()
-  const {error, value: user} = useSelector((state) => state.user)
-  const [useEmail, setEmail] = useState('')
+  const [error, setError] = useState(null)
+  const [userEmail, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const { setWord, word } = useFunctionContext()
 
   useEffect(() => {
-    if (user) {
+    if (localStorage.length) {
       navigate('/cabinet')
-    }
-  }, [user])
+    } 
+  }, [])
 
-
-  const logUser = (e) => {
+  const logUser = async (e) => {
    e.preventDefault()
-   dispatch(loginUser({  
-    email: useEmail,
-    password: password
-  }))
+   try {
+        const response = await fetch('http://localhost:3000/users', {
+        credentials: 'include',
+      })
+      const allusers = await response.json()
+      const loggedUser = allusers.filter((el) => el.email == userEmail)
+      if(!loggedUser.length) {
+        setError('пользователь не найден')
+      } else if (loggedUser[0].password != password) {
+        setError('неверный пароль')
+      } else {
+        localStorage.setItem('id', loggedUser[0].id)
+        localStorage.setItem('name', loggedUser[0].name)
+        localStorage.setItem('email', loggedUser[0].email)
+        setWord('Введите')
+        navigate('/cabinet')
+      }
+    } catch (err) {
+      setError('ошибка сервера')
+    }
   }
 
   const handleEmail = (e) => {
@@ -37,7 +51,7 @@ function Login(){
   return (
     <>
       <div className={styles.login}>
-        Введите свои данные для входа в систему 
+       {word} свои данные для входа в систему 
       </div>
       <form className={styles.input_container} onSubmit={logUser}>      
         <label > email  </label>

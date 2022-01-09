@@ -1,10 +1,10 @@
-import styles from "./cabinet.module.css"
-import Contact from "../Contact/Contact"
-import AddContact from "../AddContact/AddContact"
+import styles from './cabinet.module.css'
+import Contact from '../Contact/Contact'
+import AddContact from '../AddContact/AddContact'
 import { useState, useEffect } from 'react'
-import { useNavigate } from "react-router"
-import { useDispatch, useSelector } from "react-redux"
-import { getContacts } from "../../redux/actions/contact.action"
+import { useNavigate } from 'react-router'
+import { useDispatch, useSelector } from 'react-redux'
+import { getContacts } from '../../redux/actions/contact.action'
 
 function Cabinet() {
   const dispatch = useDispatch()
@@ -12,14 +12,13 @@ function Cabinet() {
   const [search, setSearch] = useState()
   const [add, setAdd] = useState(false)
   const [searchedContacts, setSearched] = useState([])  
-  const {error: userError, value: user} = useSelector((state) => state.user)
   const { error: contactError, value: contacts } = useSelector((state) => state.contact)
 
   useEffect(() => {
-    if (user) {
-      dispatch(getContacts(user.id))
+    if (localStorage.length) {
+      dispatch(getContacts(Number(localStorage.id)))
     } else {
-    navigate('/login')
+    navigate('/register')
     }
   }, [])
 

@@ -11,13 +11,19 @@
       "email": "pe@pa.ru",
       "password": "123",
       "id": 2
+    },
+    {
+      "name": "Ирина",
+      "email": "i@i.com",
+      "password": "123",
+      "id": 3
     }
   ],
   "contacts": [
     {
       "user_id": 2,
-      "name": "Lola",
-      "phone": "8937464789",
+      "name": "Lola!",
+      "phone": "88000000000",
       "id": 1
     },
     {
@@ -25,6 +31,18 @@
       "name": "Pepa",
       "phone": "8937464789",
       "id": 2
+    },
+    {
+      "user_id": 1,
+      "name": "sanya",
+      "phone": "575949022",
+      "id": 3
+    },
+    {
+      "user_id": 3,
+      "name": "pepa!",
+      "phone": "88005553535",
+      "id": 4
     }
   ]
 }
