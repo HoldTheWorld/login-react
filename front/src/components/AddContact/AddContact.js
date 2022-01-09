@@ -1,12 +1,14 @@
 import { useState, } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import {  addContact } from '../../redux/actions/contact.action'
+
 import styles from './add.module.css'
 
 function AddContact({add, setAdd}) {
   const dispatch = useDispatch()
   const [name, setName ] = useState('')
   const [phone, setPhone ] = useState('')
+  const { value: contacts } = useSelector((state) => state.contact)
 
   const handleName = (e) => {
     setName(e.target.value)
@@ -23,19 +25,20 @@ function AddContact({add, setAdd}) {
       name: name,
       phone: phone
     }))
-    setAdd(!add)
-    setName('')
-    setPhone('')
+
   }
 
 return (
   <>
     <form className={styles.add_form} onSubmit={handleContact}>
       <div>
-        <input onChange={handleName} placeholder='имя' name='name' id='name' type='text'/>
-        <input onChange={handlePhone} placeholder='телефон' name='phone' id='phone' type='text'/>  
+        <input onChange={handleName} placeholder='имя' name='name' id='name' type='text' required='required'/>
+        <input onChange={handlePhone} placeholder='телефон' name='phone' id='phone' type='text' required='required'/>  
       </div>
-      <button> Сохранить </button>
+      <div>
+          <button> Сохранить </button>
+          <button type='button' onClick={() => setAdd(!add)}> Отмена </button>
+      </div>
     </form>
   </>
  )

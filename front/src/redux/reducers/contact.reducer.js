@@ -28,6 +28,7 @@ export const contactReducer = (state = {}, action) => {
     case ADD_CONTACT_ERROR: {
       const { error } = payload
       return {
+        value: [...state.value],
         error: error
       }
     }

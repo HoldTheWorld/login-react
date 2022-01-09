@@ -41,7 +41,11 @@ return (
   <>
     <div className={styles.top}>
       <div className={styles.add_contact}>
-        {!add && <button onClick={()=> setAdd(!add)}> Добавить контакт</button>} 
+        {!add && 
+        <>
+          <button onClick={()=> setAdd(!add)}> Добавить контакт</button>
+        </>
+        } 
         {add && <AddContact add={add} setAdd={setAdd}/> } 
       </div>
       <div className={styles.contact_search}>

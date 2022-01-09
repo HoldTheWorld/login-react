@@ -55,9 +55,9 @@ function Login(){
       </div>
       <form className={styles.input_container} onSubmit={logUser}>      
         <label > email  </label>
-          <input onChange={handleEmail} name='email' id='email' type='text' placeholder='email'/>
+          <input onChange={handleEmail} name='email' id='email' type='text' placeholder='email' required='required'/>
         <label> Пароль  </label>
-          <input onChange={handlePass} name='password' id='password' type='password' placeholder='пароль'/>
+          <input onChange={handlePass} name='password' id='password' type='password' placeholder='пароль' required='required'/>
           {error}
         <button>Вход</button>
       </form>

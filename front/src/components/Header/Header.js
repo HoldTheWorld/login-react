@@ -15,6 +15,7 @@ function Header() {
       <header className={styles.header}>  
         { localStorage.length ? 
         <>
+ 
           <Link className={styles.head_links} to='/cabinet'> Личный кабинет</Link>
           <button type='button' onClick={logOut}>  Выйти</button>
           <div>

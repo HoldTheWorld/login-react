@@ -30,9 +30,9 @@ return (
   <div className={styles.contact_container}>
     <div>
       <div> Имя </div>
-        <input onChange={(e)=> {setName(e.target.value)}} name='name' id='name' disabled={!isActive} value={name}/>
+        <input onChange={(e)=> {setName(e.target.value)}} name='name' id='name' disabled={!isActive} value={name} required='required'/>
       <div> Телефон </div>
-        <input  onChange={(e)=> {setPhone(e.target.value)}} name='phone' id='phone' disabled={!isActive} value={phone}/>
+        <input  onChange={(e)=> {setPhone(e.target.value)}} name='phone' id='phone' disabled={!isActive} value={phone} required='required'/>
     </div>
     <div>
       <button onClick={() => handleDelete(contact.id)}>Удалить </button>
